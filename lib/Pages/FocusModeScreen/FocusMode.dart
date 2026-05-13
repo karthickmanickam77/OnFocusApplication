@@ -1,19 +1,39 @@
 // FocusModeScreen.dart
 
+import 'package:cookbook/Helpers/AppNavigations/NavigationHelpers.dart';
+import 'package:cookbook/Helpers/AppNavigations/NavigationMixin.dart';
 import 'package:cookbook/Helpers/Responsive.dart';
 import 'package:cookbook/Pages/FocusModeScreen/LocalReusables/ReusableBlockedAppsList.dart';
 import 'package:cookbook/Pages/Reusables/ReusableFocusTimer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
 import 'FocusModeVM.dart';
 
-class FocusModeScreen extends ConsumerWidget {
+class FocusModeScreen extends ConsumerStatefulWidget {
   const FocusModeScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<FocusModeScreen> createState() => _FocusModeScreenState();
+}
+
+class _FocusModeScreenState extends ConsumerState<FocusModeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    
+    ref.read(focusModeProvider).navigationStream.stream.listen((event) {
+      if (event is NavigatorPush) {
+        context.push(
+          pageConfig: event.pageConfig,
+          data: event.data,
+        );
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final vm = ref.watch(focusModeProvider);
 
     return Scaffold(
@@ -57,7 +77,7 @@ class FocusModeScreen extends ConsumerWidget {
               ),
               ReusableFocusTimer(
                   currentValue:
-                      (vm.remainingSeconds / 25).clamp(1, 25).toDouble(),
+                      (vm.remainingSeconds / 60).clamp(1, 25).toDouble(),
                   maxValue: 25,
                   formattedTime: vm.getFormattedTime(),
                   title: 'Focus Time',
@@ -124,13 +144,51 @@ class FocusModeScreen extends ConsumerWidget {
               Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: ResponsiveUI.w(16, context)),
-                child:Column(
-                  children: [
-                    Reusableblockedappslist(),
-                    Reusableblockedappslist(),
-                    Reusableblockedappslist(),
-                    Reusableblockedappslist(),],
+                child: Column(
+                  children: List.generate(
+                      vm.getBlockedApps().length,
+                      (index) => Reusableblockedappslist(
+                            onRemove: () => vm.removeBlockedApps(index),
+                          )),
                 ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                    left: ResponsiveUI.w(16, context),
+                    right: ResponsiveUI.w(16, context),
+                    top: ResponsiveUI.h(27, context)),
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xff5140F2),
+                        padding: EdgeInsets.symmetric(
+                            vertical: ResponsiveUI.h(13, context)),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                                ResponsiveUI.r(16, context)))),
+                    onPressed: () {
+                      vm.navigationToTimerScreen();
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'lib/Helpers/Images/Play.png',
+                          width: ResponsiveUI.w(35, context),
+                        ),
+                        SizedBox(
+                          width: ResponsiveUI.w(10, context),
+                        ),
+                        Text(
+                          'Enter Focus Mode',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'SF Pro',
+                            fontSize: ResponsiveUI.sp(20, context),
+                            fontWeight: FontWeight.w600,
+                          ),
+                        )
+                      ],
+                    )),
               )
             ],
           ),

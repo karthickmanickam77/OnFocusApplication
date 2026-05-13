@@ -9,7 +9,7 @@ class MainScreenModel {
   void setBottomBarElements(
     List<BottomNavElementBO> value,
   ) {
-
+ 
     elements = value;
   }
 

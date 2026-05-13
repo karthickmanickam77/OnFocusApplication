@@ -1,16 +1,11 @@
-// FocusModeModel.dart
-
-import 'package:cookbook/BOs/AppsBO/ApplicationBO.dart';
-
-class FocusModeModel {
+class FocusModeWithTimerModel {
+  // FocusModeModel.dart
 
   int _totalSeconds = 1500;
 
   int _remainingSeconds = 1500;
 
-  bool _isRunning = false;
-  List<ApplicationBO> blockedApps = [];
-
+  bool _isRunning = true;
 
   int get totalSeconds => _totalSeconds;
 
@@ -18,22 +13,15 @@ class FocusModeModel {
 
   bool get isRunning => _isRunning;
 
-  void setBlockedApps(List<ApplicationBO> apps){
-    blockedApps=apps;
-  }
-
   void setTotalSeconds(int value) {
-
     _totalSeconds = value;
   }
 
   void setRemainingSeconds(int value) {
-
     _remainingSeconds = value;
   }
 
   void setIsRunning(bool value) {
-
     _isRunning = value;
   }
 }

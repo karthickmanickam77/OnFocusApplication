@@ -1,22 +1,20 @@
-// FocusModeVM.dart
-
 import 'dart:async';
-
-import 'package:cookbook/BOs/AppsBO/ApplicationBO.dart';
 import 'package:cookbook/Helpers/AppNavigations/NavigationConfig.dart';
 import 'package:cookbook/Helpers/AppNavigations/NavigationMixin.dart';
+import 'package:cookbook/Pages/FocusModeWithTimer/FocusModeWithTimerModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'FocusModeModel.dart';
+final focusModeWithTimerProvider =
+    ChangeNotifierProvider((ref) => FocusModeWithTimerVM());
 
-final focusModeProvider = ChangeNotifierProvider((ref) => FocusModeVM());
-
-class FocusModeVM extends FocusModeModel with ChangeNotifier, NavigationMixin {
+class FocusModeWithTimerVM extends FocusModeWithTimerModel
+    with ChangeNotifier, NavigationMixin {
   Timer? timer;
 
-  FocusModeVM() {
+  FocusModeWithTimerVM() {
     initialize();
+    startTimer();
   }
 
   void initialize() {
@@ -25,25 +23,15 @@ class FocusModeVM extends FocusModeModel with ChangeNotifier, NavigationMixin {
     setRemainingSeconds(25 * 60);
 
     setIsRunning(false);
-
-    setBlockedApps([
-      ApplicationBO(applogo: 'assets/instagram.png', appname: 'Instagram'),
-      ApplicationBO(applogo: 'assets/facebook.png', appname: 'Facebook'),
-      ApplicationBO(applogo: 'assets/twitter.png', appname: 'Twitter'),
-    ]);
   }
 
-  void navigationToTimerScreen() {
-    addNavigationToStream(
-        navigate: NavigatorPush(
-            pageConfig: Pages.focusModeWithTimePageConfig, data: null));
-    dispose();
-    notifyListeners();
-  }
+  void navigationPop() {
+    addNavigationToStream(navigate: NavigatorPop(data: null));
+    timer?.cancel();
 
-  void dispose() {
     disposeNavigationMixin();
     super.dispose();
+    notifyListeners();
   }
 
   void startTimer() {
@@ -67,11 +55,6 @@ class FocusModeVM extends FocusModeModel with ChangeNotifier, NavigationMixin {
     );
   }
 
-  void removeBlockedApps(int index) {
-    blockedApps.removeAt(index);
-    notifyListeners();
-  }
-
   void stopTimer() {
     timer?.cancel();
 
@@ -86,10 +69,6 @@ class FocusModeVM extends FocusModeModel with ChangeNotifier, NavigationMixin {
     setRemainingSeconds(totalSeconds);
 
     notifyListeners();
-  }
-
-  List<ApplicationBO> getBlockedApps() {
-    return blockedApps;
   }
 
   void changeTimer(double value) {

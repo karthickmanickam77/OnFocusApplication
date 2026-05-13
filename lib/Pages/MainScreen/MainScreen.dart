@@ -7,9 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:cookbook/Pages/Reusables/CustomBottomNavBar.dart';
 
-class MainScreen
-    extends ConsumerWidget {
-
+class MainScreen extends ConsumerWidget {
   const MainScreen({super.key});
 
   @override
@@ -17,32 +15,21 @@ class MainScreen
     BuildContext context,
     WidgetRef ref,
   ) {
-
-    final vm =
-        ref.watch(mainScreenProvider);
+    final vm = ref.watch(mainScreenProvider);
 
     final pages = [
       HomeScreen(),
       InsightsScreen(),
-       FocusModeScreen(),
+      FocusModeScreen(),
       Text('data'),
     ];
 
     return Scaffold(
-
-      body:
-          pages[vm.currentIndex],
-
-      bottomNavigationBar:
-          CustomBottomBar(
-
+      body: pages[vm.currentIndex],
+      bottomNavigationBar: CustomBottomBar(
         elements: vm.elements,
-
-        currentIndex:
-            vm.currentIndex,
-
+        currentIndex: vm.currentIndex,
         onTap: (index) {
-
           vm.changeIndex(index);
         },
       ),

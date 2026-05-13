@@ -2,7 +2,8 @@ import 'package:cookbook/Helpers/Responsive.dart';
 import 'package:flutter/material.dart';
 
 class Reusableblockedappslist extends StatelessWidget {
-  const Reusableblockedappslist({super.key});
+  Function()? onRemove;
+  Reusableblockedappslist({super.key, this.onRemove});
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +28,12 @@ class Reusableblockedappslist extends StatelessWidget {
             ),
           ],
         ),
-        Image.asset(
-          'lib/Helpers/Images/removeIcon.png',
-          width: ResponsiveUI.w(40, context),
+        GestureDetector(
+          onTap: onRemove,
+          child: Image.asset(
+            'lib/Helpers/Images/removeIcon.png',
+            width: ResponsiveUI.w(40, context),
+          ),
         )
       ],
     );
