@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cookbook/Helpers/AppNavigations/NavigationHelpers.dart';
 import 'package:cookbook/Helpers/AppNavigations/NavigationMixin.dart';
 import 'package:cookbook/Helpers/Responsive.dart';
@@ -15,11 +17,12 @@ class FocusModeWithTimer extends ConsumerStatefulWidget {
 }
 
 class _FocusModeWithTimer extends ConsumerState<FocusModeWithTimer> {
+  StreamSubscription? navigationSubscription;
   @override
   void initState() {
     super.initState();
 
-    ref
+    navigationSubscription = ref
         .read(focusModeWithTimerProvider)
         .navigationStream
         .stream
@@ -30,6 +33,12 @@ class _FocusModeWithTimer extends ConsumerState<FocusModeWithTimer> {
         );
       }
     });
+  }
+
+  @override
+  void dispose() {
+    navigationSubscription?.cancel();
+    super.dispose();
   }
 
   @override

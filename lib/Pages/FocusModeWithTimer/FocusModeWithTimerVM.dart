@@ -1,12 +1,12 @@
 import 'dart:async';
-import 'package:cookbook/Helpers/AppNavigations/NavigationConfig.dart';
 import 'package:cookbook/Helpers/AppNavigations/NavigationMixin.dart';
 import 'package:cookbook/Pages/FocusModeWithTimer/FocusModeWithTimerModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final focusModeWithTimerProvider =
-    ChangeNotifierProvider((ref) => FocusModeWithTimerVM());
+    ChangeNotifierProvider.autoDispose<FocusModeWithTimerVM>(
+        (ref) => FocusModeWithTimerVM());
 
 class FocusModeWithTimerVM extends FocusModeWithTimerModel
     with ChangeNotifier, NavigationMixin {
@@ -29,8 +29,14 @@ class FocusModeWithTimerVM extends FocusModeWithTimerModel
     addNavigationToStream(navigate: NavigatorPop(data: null));
     timer?.cancel();
 
-    disposeNavigationMixin();
+    // disposeNavigationMixin();
+    // dispose();
+    notifyListeners();
+  }
+
+  void dispose() {
     super.dispose();
+    disposeNavigationMixin();
     notifyListeners();
   }
 

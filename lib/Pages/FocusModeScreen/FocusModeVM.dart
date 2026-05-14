@@ -37,7 +37,7 @@ class FocusModeVM extends FocusModeModel with ChangeNotifier, NavigationMixin {
     addNavigationToStream(
         navigate: NavigatorPush(
             pageConfig: Pages.focusModeWithTimePageConfig, data: null));
-    dispose();
+    // dispose();
     notifyListeners();
   }
 

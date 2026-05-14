@@ -2,6 +2,7 @@ import 'package:cookbook/Pages/FocusModeScreen/FocusMode.dart';
 import 'package:cookbook/Pages/HomeScreen/HomeScreen.dart';
 import 'package:cookbook/Pages/InsightScreen/InsightsScreen.dart';
 import 'package:cookbook/Pages/MainScreen/MainScreenVM.dart';
+import 'package:cookbook/Pages/SmartSuggestion/SmartSuggestionScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -21,7 +22,7 @@ class MainScreen extends ConsumerWidget {
       HomeScreen(),
       InsightsScreen(),
       FocusModeScreen(),
-      Text('data'),
+      SmartSugesstionScreen(),
     ];
 
     return Scaffold(
