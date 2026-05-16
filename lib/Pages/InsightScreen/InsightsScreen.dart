@@ -3,10 +3,10 @@
 import 'package:cookbook/BOs/InsightsBarGraphBO/InsightsBarGraphBO.dart';
 import 'package:cookbook/Helpers/Responsive.dart';
 import 'package:cookbook/Pages/InsightScreen/InsightsScreenVM.dart';
-import 'package:cookbook/Pages/InsightScreen/LocalReusables/InsightsHeaderScreen.dart';
-import 'package:cookbook/Pages/InsightScreen/LocalReusables/ReusableInsightsBarGraph.dart';
-import 'package:cookbook/Pages/InsightScreen/LocalReusables/ReusableProgressBar.dart';
-import 'package:cookbook/Pages/InsightScreen/LocalReusables/ResusableWidgets.dart';
+import 'package:cookbook/Pages/InsightScreen/DependentView/InsightsHeaderScreen.dart';
+import 'package:cookbook/Pages/InsightScreen/DependentView/ReusableInsightsBarGraph.dart';
+import 'package:cookbook/Pages/InsightScreen/DependentView/ReusableProgressBar.dart';
+import 'package:cookbook/Pages/InsightScreen/DependentView/ResusableWidgets.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

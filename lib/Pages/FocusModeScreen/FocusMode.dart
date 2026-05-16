@@ -3,7 +3,7 @@
 import 'package:cookbook/Helpers/AppNavigations/NavigationHelpers.dart';
 import 'package:cookbook/Helpers/AppNavigations/NavigationMixin.dart';
 import 'package:cookbook/Helpers/Responsive.dart';
-import 'package:cookbook/Pages/FocusModeScreen/LocalReusables/ReusableBlockedAppsList.dart';
+import 'package:cookbook/Pages/FocusModeScreen/DependentView/ReusableBlockedAppsList.dart';
 import 'package:cookbook/Pages/Reusables/ReusableFocusTimer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

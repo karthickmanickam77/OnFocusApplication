@@ -2,8 +2,8 @@
 
 import 'package:cookbook/Helpers/Responsive.dart';
 import 'package:cookbook/Pages/HomeScreen/HomeScreenVM.dart';
-import 'package:cookbook/Pages/HomeScreen/LocalReusables/ElevatedHomeScreenContainer.dart';
-import 'package:cookbook/Pages/HomeScreen/LocalReusables/QuickStartContainer.dart';
+import 'package:cookbook/Pages/HomeScreen/DependentView/ElevatedHomeScreenContainer.dart';
+import 'package:cookbook/Pages/HomeScreen/DependentView/QuickStartContainer.dart';
 import 'package:cookbook/Pages/MainScreen/MainScreenVM.dart';
 import 'package:cookbook/Pages/Reusables/CircularIndicator.dart';
 import 'package:flutter/material.dart';
