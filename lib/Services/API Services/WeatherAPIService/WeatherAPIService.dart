@@ -1,7 +1,7 @@
 import 'package:cookbook/BOs/WeatherBO/WeatherBO.dart';
 import 'package:cookbook/Helpers/ServiceResult.dart';
 import 'package:cookbook/Services/API%20Services/WeatherAPIService/IWeatherAPIService.dart';
-import 'package:dart_json_mapper/dart_json_mapper.dart';
+// import 'package:dart_json_mapper/dart_json_mapper.dart';
 import 'package:dio/dio.dart';
 
 class WeatherAPIService extends IWeatherAPIService {
@@ -27,7 +27,7 @@ class WeatherAPIService extends IWeatherAPIService {
         },
       );
 
-      WeatherBO weatherBO = JsonMapper.deserialize<WeatherBO>(
+      WeatherBO weatherBO = WeatherBO.fromJson(
         response.data['current'],
       )!;
 

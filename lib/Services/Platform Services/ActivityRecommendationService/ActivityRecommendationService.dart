@@ -1,6 +1,6 @@
 import 'package:cookbook/BOs/ActivityTypeBO/ActivityTypeBO.dart';
 import 'package:cookbook/BOs/WeatherBO/WeatherBO.dart';
-import 'package:cookbook/Helpers/Enums/ActivityType.dart';
+import 'package:cookbook/Helpers/Utilities/Enums/ActivityType.dart';
 import 'package:cookbook/Services/Platform%20Services/ActivityRecommendationService/IActivityRecommendationService.dart';
 
 class RecommendationService extends IRecommendationService {

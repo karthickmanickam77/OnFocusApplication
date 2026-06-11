@@ -1,7 +1,5 @@
-
 import 'package:cookbook/Helpers/AppNavigations/NavigationConfig.dart';
 import 'package:flutter/material.dart';
-
 
 final GlobalKey<NavigatorState> globalKey = GlobalKey<NavigatorState>();
 
@@ -19,8 +17,7 @@ class PageConfig<T> {
   });
 }
 
-class BottomNavigationConfig
-    extends _BottomNavConfigBase {
+class BottomNavigationConfig extends _BottomNavConfigBase {
   BottomNavigationConfig({
     required super.subTabUIConfigs,
     required super.subTabConfigs,
@@ -254,21 +251,23 @@ class AppRoute {
   AppRoute({required this.initialPage, required this.initialPageData});
   Route onGenerateRoute(RouteSettings settings) {
     debugPrint("Settings name :${settings.name}");
-    try {
-      var customSettings = settings.arguments as CustomRouteSettings;
+
+    if (settings.arguments == null) {
       return builder(
         CustomRouteSettings(
-          pageConfig: customSettings.pageConfig,
-          data: customSettings.data,
-        ),
-      );
-    } on TypeError {
-      return builder(
-        CustomRouteSettings(
-          pageConfig: Pages.mainPageConfig,
-          data: "",
+          pageConfig: initialPage,
+          data: initialPageData,
         ),
       );
     }
+
+    var customSettings = settings.arguments as CustomRouteSettings;
+
+    return builder(
+      CustomRouteSettings(
+        pageConfig: customSettings.pageConfig,
+        data: customSettings.data,
+      ),
+    );
   }
 }

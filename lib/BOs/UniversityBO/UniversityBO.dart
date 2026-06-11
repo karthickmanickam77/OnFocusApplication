@@ -1,13 +1,14 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:dart_json_mapper/dart_json_mapper.dart';
+// import 'package:dart_json_mapper/dart_json_mapper.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-@jsonSerializable
+@JsonSerializable()
 class UniversityBO {
-  @JsonProperty(name: 'alpha_two_code')
+  @JsonKey(name: 'alpha_two_code')
   String alphaTwoCode;
   List<String> domains;
-  @JsonProperty(name: 'state-province')
+  @JsonKey(name: 'state-province')
   String state_province;
   String country;
   String name;

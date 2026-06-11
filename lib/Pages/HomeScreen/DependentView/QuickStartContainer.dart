@@ -1,7 +1,8 @@
+import 'package:cookbook/Helpers/Language_Localization/app_localizations.dart';
 import 'package:cookbook/Helpers/Responsive.dart';
 import 'package:flutter/material.dart';
 
-class QuickStartContainer extends StatelessWidget{
+class QuickStartContainer extends StatelessWidget {
   final String image;
   final String text;
   final Color colorCode;
@@ -43,5 +44,6 @@ class QuickStartContainer extends StatelessWidget{
           ),
         ],
       ),
-    );}
+    );
+  }
 }

@@ -1,21 +1,11 @@
-import 'package:cookbook/BOs/UniversityBO/UniversityBO.dart';
 import 'package:cookbook/Pages/LoginScreen/LoginScreenModel.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class LoginScreenVM extends LoginScreenModel {
+final loginScreenProvider = ChangeNotifierProvider((ref) => LoginScreenVM());
+
+class LoginScreenVM extends LoginScreenModel with ChangeNotifier {
   LoginScreenVM() {
-    setUniversityDetails([
-      UniversityBO(
-          alphaTwoCode: "",
-          country: "",
-          domains: [],
-          name: "",
-          state_province: "",
-          web_pages: [])
-    ]);
-    fetchUniversityDetails();
-  }
-  void fetchUniversityDetails() {
-    var content = universityServices.getUniversityDetails();
-    print(content);
+    // Initialize any necessary data or perform setup tasks here
   }
 }

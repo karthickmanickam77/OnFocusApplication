@@ -1,4 +1,4 @@
-import 'package:cookbook/Helpers/Enums/ActivityType.dart';
+import 'package:cookbook/Helpers/Utilities/Enums/ActivityType.dart';
 
 class ActivityRecommendationBO {
   final String title;

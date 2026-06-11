@@ -1,0 +1,114 @@
+{
+  "@@locale": "de",
+
+  "goodMorning": "Guten Morgen",
+  "focusScore": "Fokusbewertung",
+  "today": "Heute",
+
+  "focusedTime": "Fokussierte Zeit",
+  "distractedTime": "Ablenkungszeit",
+
+  "vsYesterday": "im Vergleich zu gestern",
+
+  "inactiveFor": "Du warst inaktiv",
+  "minutes15": "seit 15 Minuten",
+
+  "shortBreakQuestion": "Zeit für eine kurze Pause?",
+
+  "quickStart": "Schnellstart",
+
+  "startFocus": "Fokus starten",
+  "takeBreak": "Pause machen",
+
+  "home": "Startseite",
+  "insights": "Einblicke",
+  "focusMode": "Fokusmodus",
+  "profile": "Profil", 
+    "focusVsDistraction": "Fokus vs Ablenkung",
+  "topDistractionApps": "Top-Ablenkungs-Apps",
+  "totalTime": "Gesamtzeit",
+  "productiveHeatmap": "Produktivitäts-Heatmap",
+  "thisWeek": "Diese Woche",
+
+  "mondayShort": "Mo",
+  "tuesdayShort": "Di",
+  "wednesdayShort": "Mi",
+  "thursdayShort": "Do",
+  "fridayShort": "Fr",
+  "saturdayShort": "Sa",
+  "sundayShort": "So",
+
+  "mondaySingle": "M",
+  "tuesdaySingle": "D",
+  "wednesdaySingle": "M",
+  "thursdaySingle": "D",
+  "fridaySingle": "F",
+  "saturdaySingle": "S",
+  "sundaySingle": "S", 
+  
+  "appBlocking": "App-Sperrung",
+  "enableSmartBlocking": "Intelligente Sperrung aktivieren",
+  "addApp": "App hinzufügen",
+
+  "blockingRules": "Sperrregeln",
+  "blockDuringFocusHours": "Während Fokuszeiten blockieren",
+  "dailyUsageLimit": "Tägliches Nutzungslimit",
+
+  "perDay": "pro Tag", 
+    "smartSuggestions": "Intelligente Vorschläge",
+  "recommendedForYou": "Für dich empfohlen",
+  "nearbyPlaces": "Orte in der Nähe",
+  "seeAll": "Alle anzeigen",
+
+  "takeAWalkNearby": "Mach einen Spaziergang",
+  "walkRefreshMind": "20 Minuten können deinen Geist erfrischen",
+
+  "readFor10Minutes": "10 Minuten lesen",
+  "readReduceStress": "Verbessert Fokus und reduziert Stress",
+
+  "breathingExercise": "Atemübung",
+  "calmMind5Min": "Beruhige deinen Geist in 5 Minuten",
+
+  "perfectWeatherWalk": "Perfektes Wetter für einen Spaziergang!", 
+    "focusTime": "Fokuszeit",
+  "nextBreakIn": "Nächste Pause in",
+  "blockedApps": "Blockierte Apps",
+  "edit": "Bearbeiten",
+  "enterFocusMode": "Fokusmodus starten", 
+    "selectedApps": "Ausgewählte Apps",
+  "select": "Auswählen", 
+  "happy": "Glücklich",
+  "calm": "Ruhig",
+  "focused": "Konzentriert",
+  "relaxed": "Entspannt",
+  "excited": "Aufgeregt",
+  "sad": "Traurig",
+  "stressed": "Gestresst",
+  "motivated": "Motiviert",
+  "sleepy": "Müde",
+  "energetic": "Energiegeladen",
+  "anxious": "Ängstlich",
+  "creative": "Kreativ", 
+  "whatsYourMoodToday": "Wie ist deine Stimmung heute?",
+  "continueButton": "Weiter", 
+  "deepWork": "Tiefenarbeit",
+  "stayFocusedMessage": "Bleib konzentriert, du machst das großartig!",
+  "appsAreBlocked": "Apps sind blockiert",
+  "end": "Beenden", 
+    "focusBetterCalmMind": "Konzentriere dich besser. Beruhige deinen Geist.",
+  "buildHealthierYou": "Baue ein gesünderes Leben auf.",
+
+  "stayFocused": "Bleib konzentriert",
+  "stayFocusedDescription": "Blockiere Ablenkungen und gehe in tiefen Fokus.",
+
+  "feelBetter": "Fühl dich besser",
+  "feelBetterDescription": "Baue gesunde Gewohnheiten für Körper und Geist auf.",
+
+  "trackProgress": "Fortschritt verfolgen",
+  "trackProgressDescription": "Einblicke, die dir helfen, jeden Tag zu wachsen.",
+
+  "getStarted": "Loslegen",
+
+  "alreadyHaveAccount": "Hast du bereits ein Konto?",
+  "login": "Anmelden"
+}

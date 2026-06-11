@@ -1,5 +1,5 @@
 import 'package:cookbook/Helpers/Utilities/Utilities.dart';
-import 'package:dart_json_mapper/dart_json_mapper.dart';
+// import 'package:dart_json_mapper/dart_json_mapper.dart';
 import 'package:dio/dio.dart';
 
 class ServiceResult<T> {
@@ -21,11 +21,14 @@ ServiceStatusCode resolveStatusCode(int statusCode) {
 }
 
 extension ServiceResultExtension on Response {
-  ServiceResult<T> getAPIServiceResult<T>(Response response) {
+  ServiceResult<T> getAPIServiceResult<T>(
+    Response response,
+    T Function(Map<String, dynamic>) fromJson,
+  ) {
     try {
       var message, content;
       try {
-        content = JsonMapper.deserialize<T>(response.data);
+        content = fromJson(response.data);
         try {
           message = content["message"];
         } catch (exception) {
@@ -52,13 +55,16 @@ extension ServiceResultExtension on Response {
     }
   }
 
-  ServiceResult<List<T>> getAPIServiceResultForList<T>(Response response) {
+  ServiceResult<List<T>> getAPIServiceResultForList<T>(
+    Response response,
+    T Function(Map<String, dynamic>) fromJson,
+  ) {
     try {
       var message, content;
       try {
         List<T> deserializeResult = [];
         for (var item in response.data) {
-          deserializeResult.add(JsonMapper.deserialize<T>(item) as T);
+          deserializeResult.add(fromJson(item));
         }
         content = deserializeResult;
         try {

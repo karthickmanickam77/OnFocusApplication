@@ -1,15 +1,20 @@
 // FocusModeModel.dart
 
 import 'package:cookbook/BOs/AppsBO/ApplicationBO.dart';
+import 'package:cookbook/BOs/BlockedAppBO/BlockedAppBO.dart';
+import 'package:cookbook/Services/Device%20Services/IsarServices/IIsarService.dart';
+import 'package:cookbook/Services/Device%20Services/NativeBlockerService/INativeBlockerService.dart';
+import 'package:get_it/get_it.dart';
 
 class FocusModeModel {
-
+  final db = GetIt.I<IIsarService>();
+  final INativeBlockerService appblocker = GetIt.I<INativeBlockerService>();
   int _totalSeconds = 1500;
 
   int _remainingSeconds = 1500;
 
   bool _isRunning = false;
-  List<ApplicationBO> blockedApps = [];
+  List<BlockedAppBO> blockedApps = [];
 
 
   int get totalSeconds => _totalSeconds;
@@ -18,7 +23,7 @@ class FocusModeModel {
 
   bool get isRunning => _isRunning;
 
-  void setBlockedApps(List<ApplicationBO> apps){
+  void setBlockedApps(List<BlockedAppBO> apps){
     blockedApps=apps;
   }
 

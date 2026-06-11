@@ -1,40 +1,61 @@
+import 'package:cookbook/Helpers/Utilities/Enums/InsightsFilter.dart';
+import 'package:cookbook/Helpers/Utilities/Enums/WeekDay.dart';
 import 'package:cookbook/Pages/InsightScreen/InsightsScreenModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+final insightsScreenProvider =
+    ChangeNotifierProvider((ref) => InsightsScreenVM());
 
-final insightsScreenProvider = ChangeNotifierProvider((ref) => InsightsScreenVM());
-class InsightsScreenVM extends InsightsScreenModel with ChangeNotifier{
-  InsightsScreenVM(){
-    
+class InsightsScreenVM extends InsightsScreenModel with ChangeNotifier {
+  InsightsScreenVM() {
     initialize();
   }
-  initialize(){
-    changeFilter("This Week");
+  initialize() {
+    changeFilter(InsightFilter.thisWeek);
+    // changeFilter("This Week");
     addFilter([
-      "Today",
-      "This Week",
-      "This Month",
+      InsightFilter.today,
+      InsightFilter.thisWeek,
+      InsightFilter.thisMonth,
     ]);
+
+    // addFilter([
+    //   "Today",
+    //   "This Week",
+    //   "This Month",
+    // ]);
     setDays([
-      "M",
-      "Tu",
-      "W",
-      "Th",
-      "F",
-      "Sa",
-      "Su",
+      WeekDay.monday,
+      WeekDay.tuesday,
+      WeekDay.wednesday,
+      WeekDay.thursday,
+      WeekDay.friday,
+      WeekDay.saturday,
+      WeekDay.sunday,
     ]);
+    // setDays([
+    //   "M",
+    //   "Tu",
+    //   "W",
+    //   "Th",
+    //   "F",
+    //   "Sa",
+    //   "Su",
+    // ]);
   }
-  void changeFilter(String filter){
+
+  void changeFilter(InsightFilter filter) {
     setSelectedFilter(filter);
     notifyListeners();
   }
-  void addFilter(List<String> filters){
+
+  void addFilter(List<InsightFilter> filters) {
     setFilters(filters);
     notifyListeners();
   }
-  List<String> getGraphList(){
+
+  List<WeekDay> getGraphList() {
     return getDays();
   }
 }

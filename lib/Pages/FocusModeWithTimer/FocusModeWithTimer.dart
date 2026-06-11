@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:cookbook/Helpers/AppNavigations/NavigationHelpers.dart';
 import 'package:cookbook/Helpers/AppNavigations/NavigationMixin.dart';
+import 'package:cookbook/Helpers/Language_Localization/app_localizations.dart';
 import 'package:cookbook/Helpers/Responsive.dart';
 import 'package:cookbook/Pages/FocusModeWithTimer/FocusModeWithTimerVM.dart';
 import 'package:cookbook/Pages/Reusables/ReusableFocusTimer.dart';
@@ -21,7 +22,6 @@ class _FocusModeWithTimer extends ConsumerState<FocusModeWithTimer> {
   @override
   void initState() {
     super.initState();
-
     navigationSubscription = ref
         .read(focusModeWithTimerProvider)
         .navigationStream
@@ -43,6 +43,7 @@ class _FocusModeWithTimer extends ConsumerState<FocusModeWithTimer> {
 
   @override
   Widget build(BuildContext context) {
+    final lang = AppLocalizations.of(context)!;
     final vm = ref.watch(focusModeWithTimerProvider);
     return Scaffold(
       backgroundColor: Color(0xff080E1B),
@@ -53,7 +54,7 @@ class _FocusModeWithTimer extends ConsumerState<FocusModeWithTimer> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Text(
-              'Deep Work',
+              lang.deepWork,
               style: GoogleFonts.inter(
                   fontSize: ResponsiveUI.sp(19, context),
                   color: Color(0xffffffff),
@@ -77,7 +78,7 @@ class _FocusModeWithTimer extends ConsumerState<FocusModeWithTimer> {
                     vm.navigationPop();
                   },
                   child: Text(
-                    'End',
+                    lang.end,
                     style: GoogleFonts.inter(
                         fontSize: ResponsiveUI.sp(10, context),
                         color: Color(0xffF55745),
@@ -102,7 +103,7 @@ class _FocusModeWithTimer extends ConsumerState<FocusModeWithTimer> {
                       (vm.remainingSeconds / 60).clamp(1, 25).toDouble(),
                   maxValue: 25,
                   formattedTime: vm.getFormattedTime(),
-                  title: 'Focus Time',
+                  title: lang.focusTime,
                   isEditable: false,
                   onChanged: (value) =>
                       ref.read(focusModeWithTimerProvider).changeTimer(value)),
@@ -110,7 +111,7 @@ class _FocusModeWithTimer extends ConsumerState<FocusModeWithTimer> {
                 height: ResponsiveUI.h(24, context),
               ),
               Text(
-                'Stay focused, you\'re doing great!',
+                lang.stayFocusedMessage,
                 style: GoogleFonts.inter(
                     fontWeight: FontWeight.w500,
                     fontSize: ResponsiveUI.sp(17, context),
@@ -151,7 +152,7 @@ class _FocusModeWithTimer extends ConsumerState<FocusModeWithTimer> {
                     width: ResponsiveUI.w(11, context),
                   ),
                   Text(
-                    'Apps are blocked',
+                    lang.appsAreBlocked,
                     style: TextStyle(
                         fontFamily: 'SFProRounded',
                         fontSize: ResponsiveUI.sp(19, context),

@@ -1,0 +1,114 @@
+{
+  "@@locale": "ta",
+
+  "goodMorning": "காலை வணக்கம்",
+  "focusScore": "மதிப்பெண்",
+  "today": "இன்று",
+
+  "focusedTime": "கவன நேரம்",
+  "distractedTime": "திசைதிருப்ப நேரம்",
+
+  "vsYesterday": "நேற்றுடன் ஒப்பிடுகையில்",
+
+  "inactiveFor": "நீங்கள் செயலற்ற நிலையில் உள்ளீர்கள்",
+  "minutes15": "15 நிமிடங்களாக",
+
+  "shortBreakQuestion": "சிறிய ஓய்வு வேண்டுமா?",
+
+  "quickStart": "விரைவு தொடக்கம்",
+
+  "startFocus": "கவனத்தை தொடங்கு",
+  "takeBreak": "ஓய்வு எடு",
+
+  "home": "முகப்பு",
+  "insights": "பகுப்பாய்வு",
+  "focusMode": "கவன நிலை",
+  "profile": "சுயவிவரம்", 
+    "focusVsDistraction": "கவனம் vs திசைதிருப்பு",
+  "topDistractionApps": "அதிக திசைதிருப்பும் செயலிகள்",
+  "totalTime": "மொத்த நேரம்",
+  "productiveHeatmap": "உற்பத்தித்திறன் ஹீட்மேப்",
+  "thisWeek": "இந்த வாரம்",
+
+  "mondayShort": "திங்",
+  "tuesdayShort": "செவ்",
+  "wednesdayShort": "புத",
+  "thursdayShort": "வியா",
+  "fridayShort": "வெள்",
+  "saturdayShort": "சனி",
+  "sundayShort": "ஞாயி",
+
+  "mondaySingle": "த",
+  "tuesdaySingle": "ச",
+  "wednesdaySingle": "ப",
+  "thursdaySingle": "வ",
+  "fridaySingle": "வெ",
+  "saturdaySingle": "ச",
+  "sundaySingle": "ஞா", 
+    "appBlocking": "செயலி தடை",
+  "enableSmartBlocking": "ஸ்மார்ட் தடையை இயக்கு",
+  "addApp": "செயலியை சேர்",
+
+  "blockingRules": "தடை விதிமுறைகள்",
+  "blockDuringFocusHours": "கவன நேரங்களில் தடு",
+  "dailyUsageLimit": "தினசரி பயன்பாட்டு வரம்பு",
+
+  "perDay": "ஒரு நாளுக்கு", 
+  
+  "smartSuggestions": "ஸ்மார்ட் பரிந்துரைகள்",
+  "recommendedForYou": "உங்களுக்கு பரிந்துரைகள்",
+  "nearbyPlaces": "அருகிலுள்ள இடங்கள்",
+  "seeAll": "அனைத்தையும் காண்க",
+
+  "takeAWalkNearby": "அருகில் நடைப்பயிற்சி செல்லுங்கள்",
+  "walkRefreshMind": "20 நிமிடங்கள் உங்கள் மனதை புத்துணர்ச்சி பெறச் செய்யும்",
+
+  "readFor10Minutes": "10 நிமிடங்கள் படிக்கவும்",
+  "readReduceStress": "கவனத்தை மேம்படுத்தி மன அழுத்தத்தை குறைக்கும்",
+
+  "breathingExercise": "மூச்சுப்பயிற்சி",
+  "calmMind5Min": "5 நிமிடங்களில் மனதை அமைதிப்படுத்து",
+
+  "perfectWeatherWalk": "நடைப்பயிற்சிக்கு சிறந்த வானிலை!", 
+  "focusTime": "கவன நேரம்",
+  "nextBreakIn": "அடுத்த இடைவெளி",
+  "blockedApps": "தடுக்கப்பட்ட செயலிகள்",
+  "edit": "திருத்து",
+  "enterFocusMode": "கவன நிலையை தொடங்கு",
+  "selectedApps": "தேர்ந்தெடுக்கப்பட்ட செயலிகள்",
+  "select": "தேர்வு செய்", 
+  "happy": "மகிழ்ச்சி",
+  "calm": "அமைதி",
+  "focused": "கவனம்",
+  "relaxed": "தளர்ச்சி",
+  "excited": "உற்சாகம்",
+  "sad": "சோகம்",
+  "stressed": "மனஅழுத்தம்",
+  "motivated": "உந்துதல்",
+  "sleepy": "தூக்கம்",
+  "energetic": "ஆற்றலுடன்",
+  "anxious": "பதட்டம்",
+  "creative": "படைப்பாற்றல்", 
+  "whatsYourMoodToday": "இன்று உங்கள் மனநிலை என்ன?",
+  "continueButton": "தொடரவும்", 
+  "deepWork": "ஆழ்ந்த வேலை",
+  "stayFocusedMessage": "கவனமாக இருங்கள், நீங்கள் சிறப்பாக செய்கிறீர்கள்!",
+  "appsAreBlocked": "செயலிகள் தடுக்கப்பட்டுள்ளன",
+  "end": "முடி", 
+    "focusBetterCalmMind": "சிறப்பாக கவனம் செலுத்துங்கள். உங்கள் மனதை அமைதிப்படுத்துங்கள்.",
+  "buildHealthierYou": "ஒரு ஆரோக்கியமான உங்களை உருவாக்குங்கள்.",
+
+  "stayFocused": "கவனமாக இருங்கள்",
+  "stayFocusedDescription": "தடங்கல்களை தடுத்து ஆழ்ந்த கவனத்தில் செல்லுங்கள்.",
+
+  "feelBetter": "சிறப்பாக உணருங்கள்",
+  "feelBetterDescription": "உடலும் மனதிற்கும் ஆரோக்கியமான பழக்கங்களை உருவாக்குங்கள்.",
+
+  "trackProgress": "முன்னேற்றத்தை கண்காணிக்கவும்",
+  "trackProgressDescription": "ஒவ்வொரு நாளும் வளர உதவும் தகவல்கள்.",
+
+  "getStarted": "தொடங்குங்கள்",
+
+  "alreadyHaveAccount": "ஏற்கனவே கணக்கு உள்ளதா?",
+  "login": "உள்நுழைக"
+}

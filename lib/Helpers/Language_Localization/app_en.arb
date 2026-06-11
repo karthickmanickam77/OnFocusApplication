@@ -1,0 +1,115 @@
+{
+  "@@locale": "en",
+
+  "goodMorning": "Good Morning",
+  "focusScore": "Focus Score",
+  "today": "Today",
+
+  "focusedTime": "Focused Time",
+  "distractedTime": "Distracted Time",
+
+  "vsYesterday": "vs yesterday",
+
+  "inactiveFor": "You’ve been inactive",
+  "minutes15": "for 15 min",
+
+  "shortBreakQuestion": "Time for a short break?",
+
+  "quickStart": "Quick Start",
+
+  "startFocus": "Start Focus",
+  "takeBreak": "Take a Break",
+
+  "home": "Home",
+  "insights": "Insights",
+  "focusMode": "Focus Mode",
+  "profile": "Profile", 
+    "focusVsDistraction": "Focus vs Distraction",
+  "topDistractionApps": "Top Distraction Apps",
+  "totalTime": "Total Time",
+  "productiveHeatmap": "Productive Heatmap",
+  "thisWeek": "This Week",
+
+  "mondayShort": "Mon",
+  "tuesdayShort": "Tue",
+  "wednesdayShort": "Wed",
+  "thursdayShort": "Thu",
+  "fridayShort": "Fri",
+  "saturdayShort": "Sat",
+  "sundayShort": "Sun",
+
+  "mondaySingle": "M",
+  "tuesdaySingle": "T",
+  "wednesdaySingle": "W",
+  "thursdaySingle": "T",
+  "fridaySingle": "F",
+  "saturdaySingle": "S",
+  "sundaySingle": "S", 
+  
+  "appBlocking": "App Blocking",
+  "enableSmartBlocking": "Enable Smart Blocking",
+  "addApp": "Add App",
+
+  "blockingRules": "Blocking Rules",
+  "blockDuringFocusHours": "Block during focus hours",
+  "dailyUsageLimit": "Daily usage limit",
+
+  "perDay": "per day", 
+    "smartSuggestions": "Smart Suggestions",
+  "recommendedForYou": "Recommended for you",
+  "nearbyPlaces": "Nearby Places",
+  "seeAll": "See all",
+
+  "takeAWalkNearby": "Take a walk nearby",
+  "walkRefreshMind": "20 min can refresh your mind",
+
+  "readFor10Minutes": "Read for 10 minutes",
+  "readReduceStress": "Improve focus and reduce stress",
+
+  "breathingExercise": "Breathing exercise",
+  "calmMind5Min": "Calm your mind in 5 min",
+
+  "perfectWeatherWalk": "Perfect weather for a walk!",
+  "focusTime": "Focus Time",
+  "nextBreakIn": "Next break in",
+  "blockedApps": "Blocked Apps",
+  "edit": "Edit",
+  "enterFocusMode": "Enter Focus Mode", 
+    "selectedApps": "Selected Apps",
+  "select": "Select", 
+    "happy": "Happy",
+  "calm": "Calm",
+  "focused": "Focused",
+  "relaxed": "Relaxed",
+  "excited": "Excited",
+  "sad": "Sad",
+  "stressed": "Stressed",
+  "motivated": "Motivated",
+  "sleepy": "Sleepy",
+  "energetic": "Energetic",
+  "anxious": "Anxious",
+  "creative": "Creative", 
+  "whatsYourMoodToday": "What's Your Mood Today?",
+  "continueButton": "Continue", 
+  "deepWork": "Deep Work",
+  "stayFocusedMessage": "Stay focused, you're doing great!",
+  "appsAreBlocked": "Apps are blocked",
+  "end": "End", 
+    "focusBetterCalmMind": "Focus better. Calm your mind.",
+  "buildHealthierYou": "Build a healthier you.",
+
+  "stayFocused": "Stay Focused",
+  "stayFocusedDescription": "Block distractions and enter deep focus.",
+
+  "feelBetter": "Feel Better",
+  "feelBetterDescription": "Build healthy habits for body and mind.",
+
+  "trackProgress": "Track Progress",
+  "trackProgressDescription": "Insights to help you grow every day.",
+
+  "getStarted": "Get Started",
+
+  "alreadyHaveAccount": "Already have an account?",
+  "login": "Login"
+
+}

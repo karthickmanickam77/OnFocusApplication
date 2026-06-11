@@ -1,41 +1,68 @@
 // FocusModeScreen.dart
 
+import 'dart:async';
+
 import 'package:cookbook/Helpers/AppNavigations/NavigationHelpers.dart';
 import 'package:cookbook/Helpers/AppNavigations/NavigationMixin.dart';
+import 'package:cookbook/Helpers/Language_Localization/app_localizations.dart';
 import 'package:cookbook/Helpers/Responsive.dart';
+import 'package:cookbook/Helpers/Utilities/Local_Utils.dart';
 import 'package:cookbook/Pages/FocusModeScreen/DependentView/ReusableBlockedAppsList.dart';
 import 'package:cookbook/Pages/Reusables/ReusableFocusTimer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'FocusModeVM.dart';
 
 class FocusModeScreen extends ConsumerStatefulWidget {
   const FocusModeScreen({super.key});
-
   @override
   ConsumerState<FocusModeScreen> createState() => _FocusModeScreenState();
 }
 
 class _FocusModeScreenState extends ConsumerState<FocusModeScreen> {
+  StreamSubscription? navigationSubscription;
+
   @override
   void initState() {
     super.initState();
-    
-    ref.read(focusModeProvider).navigationStream.stream.listen((event) {
+    navigationSubscription =
+        ref.read(focusModeProvider).navigationStream.stream.listen((event) {
       if (event is NavigatorPush) {
         context.push(
           pageConfig: event.pageConfig,
           data: event.data,
         );
       }
+      // if (event is NavigatorPush) {
+      //   Future(() async {
+      //     final result = await context.push(
+      //       pageConfig: event.pageConfig,
+      //       data: event.data,
+      //     );
+
+      //     if (result == true) {
+      //       // setState(() {});
+
+      //       // OR
+      //       ref.invalidate(focusModeProvider);
+      //     }
+      //   });
+      // }
     });
   }
 
   @override
-  Widget build(BuildContext context) {
-    final vm = ref.watch(focusModeProvider);
+  void dispose() {
+    navigationSubscription?.cancel();
+    super.dispose();
+  }
 
+  @override
+  Widget build(BuildContext context) {
+    final lang = AppLocalizations.of(context)!;
+    final vm = ref.watch(focusModeProvider);
     return Scaffold(
       backgroundColor: Color(0xFFFDFDFE),
       appBar: AppBar(
@@ -51,16 +78,21 @@ class _FocusModeScreenState extends ConsumerState<FocusModeScreen> {
                 width: ResponsiveUI.w(40, context),
               ),
               Text(
-                'Focus Mode',
+                lang.focusMode,
                 style: TextStyle(
                   fontFamily: 'SFProRounded',
                   fontSize: ResponsiveUI.sp(20, context),
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              Image.asset(
-                "lib/Helpers/Images/setting.png",
-                width: ResponsiveUI.w(40, context),
+              GestureDetector(
+                onTap: () {
+                  vm.navigationToAppBlockingScreen();
+                },
+                child: Image.asset(
+                  "lib/Helpers/Images/setting.png",
+                  width: ResponsiveUI.w(40, context),
+                ),
               ),
             ],
           ),
@@ -80,7 +112,7 @@ class _FocusModeScreenState extends ConsumerState<FocusModeScreen> {
                       (vm.remainingSeconds / 60).clamp(1, 25).toDouble(),
                   maxValue: 25,
                   formattedTime: vm.getFormattedTime(),
-                  title: 'Focus Time',
+                  title: lang.focusedTime,
                   isEditable: true,
                   onChanged: (value) =>
                       ref.read(focusModeProvider).changeTimer(value)),
@@ -88,10 +120,11 @@ class _FocusModeScreenState extends ConsumerState<FocusModeScreen> {
                 height: ResponsiveUI.h(33, context),
               ),
               Text(
-                'Next break in 25:00',
+                lang.nextBreakIn + ' 25:00',
                 style: TextStyle(
                   fontFamily: 'SFProRounded',
-                  fontSize: ResponsiveUI.sp(18, context),
+                  fontSize: ResponsiveUI.sp(
+                      LocaleUtils.isTamil(context) ? 15 : 18, context),
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -124,18 +157,20 @@ class _FocusModeScreenState extends ConsumerState<FocusModeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Blocked Apps',
+                    Text(lang.blockedApps,
                         style: TextStyle(
                           color: Colors.black,
                           fontFamily: 'SF Pro',
-                          fontSize: ResponsiveUI.sp(18, context),
+                          fontSize: ResponsiveUI.sp(
+                              LocaleUtils.isTamil(context) ? 15 : 18, context),
                           fontWeight: FontWeight.w600,
                         )),
-                    Text('Edit',
+                    Text(lang.edit,
                         style: TextStyle(
                           color: Color(0xff8785C8),
                           fontFamily: 'SF Pro',
-                          fontSize: ResponsiveUI.sp(18, context),
+                          fontSize: ResponsiveUI.sp(
+                              LocaleUtils.isTamil(context) ? 15 : 18, context),
                           fontWeight: FontWeight.w600,
                         )),
                   ],
@@ -144,12 +179,18 @@ class _FocusModeScreenState extends ConsumerState<FocusModeScreen> {
               Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: ResponsiveUI.w(16, context)),
-                child: Column(
-                  children: List.generate(
-                      vm.getBlockedApps().length,
-                      (index) => Reusableblockedappslist(
-                            onRemove: () => vm.removeBlockedApps(index),
-                          )),
+                child: SizedBox(
+                  height: ResponsiveUI.h(130, context),
+                  child: ListView.builder(
+                      physics: AlwaysScrollableScrollPhysics(),
+                      scrollDirection: Axis.vertical,
+                      itemCount: vm.getBlockedApps().length,
+                      itemBuilder: (context, index) {
+                        return Reusableblockedappslist(
+                          appDetail: vm.blockedApps[index],
+                          onRemove: () => vm.removeBlockedApps(index),
+                        );
+                      }),
                 ),
               ),
               Padding(
@@ -166,7 +207,7 @@ class _FocusModeScreenState extends ConsumerState<FocusModeScreen> {
                             borderRadius: BorderRadius.circular(
                                 ResponsiveUI.r(16, context)))),
                     onPressed: () {
-                      vm.navigationToTimerScreen();
+                      vm.updateRestrictedAppsList();
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -179,11 +220,13 @@ class _FocusModeScreenState extends ConsumerState<FocusModeScreen> {
                           width: ResponsiveUI.w(10, context),
                         ),
                         Text(
-                          'Enter Focus Mode',
+                          lang.enterFocusMode,
                           style: TextStyle(
                             color: Colors.white,
                             fontFamily: 'SF Pro',
-                            fontSize: ResponsiveUI.sp(20, context),
+                            fontSize: ResponsiveUI.sp(
+                                LocaleUtils.isTamil(context) ? 15 : 20,
+                                context),
                             fontWeight: FontWeight.w600,
                           ),
                         )

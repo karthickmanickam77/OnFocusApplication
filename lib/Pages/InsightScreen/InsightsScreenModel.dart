@@ -1,25 +1,30 @@
-class InsightsScreenModel{
+// import 'package:cookbook/Helpers/Language_Localization/app_localizations.dart';
 
-  List<String> filters = [];
-  String selectedFilter = '';
-  List<String> days = [];
-  
-  
-  void setDays(List<String> days){
-    this.days=days;
+import 'package:cookbook/Helpers/Utilities/Enums/InsightsFilter.dart';
+import 'package:cookbook/Helpers/Utilities/Enums/WeekDay.dart';
+
+class InsightsScreenModel {
+  List<InsightFilter> filters = [];
+  InsightFilter selectedFilter = InsightFilter.today;
+  List<WeekDay> days = [];
+
+  void setDays(List<WeekDay> days) {
+    this.days = days;
   }
-  List<String> getDays(){
+
+  List<WeekDay> getDays() {
     return days;
   }
 
-  void setFilters(List<String> filters){
-    this.filters=filters;
+  void setFilters(List<InsightFilter> filters) {
+    this.filters = filters;
   }
-  
-  void setSelectedFilter(String selectedFilter){
-    this.selectedFilter=selectedFilter;
+
+  void setSelectedFilter(InsightFilter selectedFilter) {
+    this.selectedFilter = selectedFilter;
   }
-  String getSelectedFilter(){
+
+  InsightFilter getSelectedFilter() {
     return selectedFilter;
   }
 }

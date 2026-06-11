@@ -1,6 +1,10 @@
-import 'package:dart_json_mapper/dart_json_mapper.dart';
+// import 'package:dart_json_mapper/dart_json_mapper.dart';
 
-@jsonSerializable
+import 'package:json_annotation/json_annotation.dart';
+
+part 'WeatherBO.g.dart';
+
+@JsonSerializable()
 class WeatherBO {
   double? temperature_2m;
   int? weather_code;
@@ -11,6 +15,12 @@ class WeatherBO {
     this.weather_code,
     this.is_day,
   });
+  factory WeatherBO.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$WeatherBOFromJson(json);
+
+  Map<String, dynamic> toJson() => _$WeatherBOToJson(this);
   String get recommendationText {
     switch (weather_code) {
       case 0:

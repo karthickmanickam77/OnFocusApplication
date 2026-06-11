@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final focusModeWithTimerProvider =
-    ChangeNotifierProvider.autoDispose<FocusModeWithTimerVM>(
+    ChangeNotifierProvider.autoDispose(
         (ref) => FocusModeWithTimerVM());
 
 class FocusModeWithTimerVM extends FocusModeWithTimerModel
@@ -34,10 +34,11 @@ class FocusModeWithTimerVM extends FocusModeWithTimerModel
     notifyListeners();
   }
 
+  @override
   void dispose() {
-    super.dispose();
+    timer?.cancel();
     disposeNavigationMixin();
-    notifyListeners();
+    super.dispose();
   }
 
   void startTimer() {

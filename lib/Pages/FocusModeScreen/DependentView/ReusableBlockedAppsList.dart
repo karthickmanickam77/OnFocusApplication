@@ -1,9 +1,13 @@
+import 'dart:typed_data';
+
+import 'package:cookbook/BOs/BlockedAppBO/BlockedAppBO.dart';
 import 'package:cookbook/Helpers/Responsive.dart';
 import 'package:flutter/material.dart';
 
 class Reusableblockedappslist extends StatelessWidget {
   Function()? onRemove;
-  Reusableblockedappslist({super.key, this.onRemove});
+  BlockedAppBO appDetail;
+  Reusableblockedappslist({super.key, this.onRemove, required this.appDetail});
 
   @override
   Widget build(BuildContext context) {
@@ -12,13 +16,17 @@ class Reusableblockedappslist extends StatelessWidget {
       children: [
         Row(
           children: [
-            Image.asset('lib/Helpers/Images/instagram.png',
-                width: ResponsiveUI.w(32, context)),
+            (appDetail.icon!=null)?Image.memory(
+              Uint8List.fromList(appDetail.icon ?? []),
+              height: ResponsiveUI.h(32, context),
+              width: ResponsiveUI.w(32, context),
+            ):Icon(Icons.android),
+            
             SizedBox(
               width: ResponsiveUI.w(16, context),
             ),
             Text(
-              'Instagram',
+              appDetail.appName,
               style: TextStyle(
                 fontFamily: 'SF Pro',
                 color: Colors.black,
