@@ -1,16 +1,2 @@
-# cookbook
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Currently developing a cross-platform wellbeing and productivity application called *Deep Focus* using Flutter to help users improve concentration and reduce digital distractions. Implemented features such as focus sessions, smart app blocking, productivity insights, mood tracking, multilingual support, weather-based suggestions using Weather API, maps integration, local database management, and Android Method Channel integration. The application follows a scalable MVVM-inspired architecture using Riverpod, reusable widgets, responsive UI design, and localization support. Planned features include biometric authentication, AI-powered suggestions, notification voice models and advanced deep focus modes.
+AppConstants -> mailboxapi ->       "pk.eyJ1Ijoia2FydGhpY2ttYW5pY2thbWluZ2VybWFueSIsImEiOiJjbXA2MTRveWUwejhqMnFzOTduMzdkOHIzIn0.aTJO2zy5Egwn2dnT-Th1PA";
